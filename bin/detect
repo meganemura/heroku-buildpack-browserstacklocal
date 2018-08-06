@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "BrowserStackLocal"
+exit 0

@@ -1,0 +1,14 @@
+#!/bin/bash -ex
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+CACHED_ZIP=BrowserStackLocal-linux-x64.zip
+ZIP_URL=https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
+BINARY=BrowserStackLocal
+
+[ -f $CACHE_DIR/$CACHED_ZIP ] || \
+  wget -nv $ZIP_URL -O $CACHE_DIR/$CACHED_ZIP && \
+  unzip -d $CACHE_DIR -u $CACHE_DIR/$CACHED_ZIP
+
+cp $CACHE_DIR/$BINARY $BUILD_DIR/
